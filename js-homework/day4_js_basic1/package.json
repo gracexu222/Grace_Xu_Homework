@@ -1,0 +1,17 @@
+{
+  "name": "day4_js_basic1",
+  "version": "1.0.0",
+  "main": "arrays.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  
+  },
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
