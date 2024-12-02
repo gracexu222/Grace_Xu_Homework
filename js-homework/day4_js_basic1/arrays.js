@@ -67,7 +67,7 @@ export function findMaxNum(arr) {
   //   returns the maximum number in that array.
   //   Do not use Math.max
   //   Example: const arr = [1, 2, 3, 4, 5];
-  if (arr.length === 0) return undefined;
+  if (arr.length === 0) return 0;
   let max = arr[0];
   for (let i = 1; i < arr.length; i ++){
     if (arr[i] > max){
