@@ -42,13 +42,10 @@ export default class Pizza {
   constructor(size, toppingCodes) {
     this.size = size;
 
-    // Map topping names to codes if necessary
     this.toppingCodes = toppingCodes.map((codeOrName) => {
       if (TOPPINGS[codeOrName]) {
-        // It's a code
         return codeOrName;
       } else if (TOPPING_NAMES_TO_CODES[codeOrName]) {
-        // It's a name
         return TOPPING_NAMES_TO_CODES[codeOrName];
       } else {
         throw new Error(`Invalid topping code or name: ${codeOrName}`);
