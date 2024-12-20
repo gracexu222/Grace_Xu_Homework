@@ -1,4 +1,4 @@
-import React from "react";
+import React,from "react";
 import FetchPostByIdApp from "../solutions/FetchPostByIdApp";
 
 export default function Day13Play() {

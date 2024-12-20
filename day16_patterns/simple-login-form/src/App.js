@@ -24,12 +24,23 @@ const LoginForm = () => {
         <h2>Login</h2>
         <div>
           <label>Username</label>
-          <input />
+          <input
+            id="username"
+            name="username"
+            ref={usernameRef}
+            type="text"
+            placeholder="Enter your username"
+          />
         </div>
 
         <div>
           <label htmlFor="password">Password</label>
-          <input />
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Enter your password"
+          />
         </div>
         <button type="submit">Login</button>
       </form>

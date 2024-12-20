@@ -20,12 +20,14 @@ function RandomJokeFetcher() {
 
   const fetchJoke = async () => {
     try {
+      // clear previous error message before fetching a new joke
       setError(null);
       setJoke(null);
 
       const response = await fetch(
         "https://official-joke-api.appspot.com/random_joke"
       );
+      // this part is for new when successfully get a response but it's not ok
       if (!response.ok) {
         throw new error("Failed to fetch joke.");
       }
