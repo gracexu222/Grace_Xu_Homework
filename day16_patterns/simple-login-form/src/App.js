@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 const LoginForm = () => {
   const usernameRef = useRef(null);
@@ -8,7 +8,17 @@ const LoginForm = () => {
       usernameRef.current.focus();
     }
   }, []);
+  const count = 0;
 
+  const [timeoutCount, setTimeoutCount] = useState(0);
+  const countRef = useRef(count);
+  countRef.current = count;
+
+  const getCountTimeout = () => {
+    setTimeout(() => {
+      setTimeoutCount(countRef.current);
+    }, 5000);
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     const username = event.target.username.value;
