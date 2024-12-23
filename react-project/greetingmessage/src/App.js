@@ -7,7 +7,9 @@ import React from "react";
 // Main application component
 export default function App() {
   const { inputName, getInputName, greeting } = useDidUpdate(); // Use the hook to get state and actions
-
+  const handleInputChange = (e) => {
+    getInputName(e.target.value);
+  };
   return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       <h1>Dynamic Greeting</h1>
@@ -16,7 +18,7 @@ export default function App() {
         <input
           type="text"
           value={inputName} // Bind input value to `name`
-          onChange={(e) => getInputName(e.target.value)} // Update state on input change
+          onChange={handleInputChange} // Update state on input change
           style={{
             marginLeft: "10px",
             padding: "5px",
