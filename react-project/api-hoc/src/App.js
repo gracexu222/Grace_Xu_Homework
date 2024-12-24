@@ -4,12 +4,12 @@ import { useApi } from "./useApi";
 export default function App() {
   const {
     data: apiData,
-    loading,
-    error,
+    loading: apiLoading,
+    error: apiError,
   } = useApi("https://jsonplaceholder.typicode.com/posts");
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error:{error}</p>;
-
+  if (apiLoading) return <p>Loading...</p>;
+  if (apiError) return <p>Error:{apiError}</p>;
+  console.log(apiData);
   return (
     <div>
       <h1>Get the user Information</h1>
