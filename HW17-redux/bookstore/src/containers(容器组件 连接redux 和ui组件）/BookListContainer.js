@@ -1,16 +1,14 @@
 import { connect } from "react-redux";
-import BookList from "../components（UI 组件）/BookList";
+import BookList from "../components/BookList";
+import { setCurrentBook, removeBook } from "../redux/actions/bookActions";
 
-const mapStateToProps = (state) => {
-  const { books, searchQuery } = state;
+const mapStateToProps = (state) => ({
+  books: state.books.list,
+});
 
-  const filteredBooks = books.filter((book) =>
-    book.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-  return { book: filteredBooks };
-};
 const mapDispatchToProps = (dispatch) => ({
-  onBookSelect: (bookId) => dispatch(setCurrentBook(bookId)),
+  onBookSelect: (book) => dispatch(setCurrentBook(book)),
+  onBookRemove: (id) => dispatch(removeBook(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookList);
