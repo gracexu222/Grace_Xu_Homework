@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addTodo, removeTodo } from "../features/TodoSlice";
+import { addTodo, removeTodo,toggleComplete } from "../features/TodoSlice";
+import '../App.css'
+
 
 const TodoApp = () => {
   const [task, setTask] = useState(" ");
@@ -10,7 +12,7 @@ const TodoApp = () => {
   const handleAdd = () => {
     if (task.trim()) {
       dispatch(addTodo({ id: Date.now(), task }));
-      setTask("");
+      setTask(" ");
     }
   };
 
@@ -18,9 +20,12 @@ const TodoApp = () => {
     dispatch(removeTodo(id));
   };
 
+  const handleToggle =(id) => {
+    dispatch(toggleComplete(id));
+  };
+
   const handleInputChange = (e) => {
-    console.log(e);
-    console.log(e.target);
+
     setTask(e.target.value);
   };
 
@@ -36,9 +41,14 @@ const TodoApp = () => {
       <button onClick={handleAdd}>Add</button>
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>
-            {todo.task}
+          <li key={todo.id} className={todo.completed ? 'completed' : ''}>
+            <span>{todo.task}</span>
+            <div>
+            <button onClick={() => handleToggle(todo.id)}>
+              {todo.completed ? 'Undo' : 'Complete'}
+            </button>
             <button onClick={() => handleRemove(todo.id)}>Remove</button>
+            </div>
           </li>
         ))}
       </ul>
