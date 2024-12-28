@@ -5,7 +5,6 @@ import {
   removeTodo,
   toggleComplete,
   editTodo,
-  clearCompleted,
 } from "../features/todoSlice";
 
 const TodoApp = () => {
@@ -20,7 +19,7 @@ const TodoApp = () => {
         dispatch(editTodo({ id: editId, newText: task }));
         setEditId(null);
       } else {
-        dispatch(addTodo({ id: Date.now(), task, completed: false }));
+        dispatch(addTodo({ id: Date.now(), task, completed: false })); // not use Date.now()
       }
       setTask("");
     }
@@ -43,6 +42,7 @@ const TodoApp = () => {
       console.error("Task is undefined for the selected todo.");
     }
   };
+
   const handleSetTask = (e) => {
     setTask(e.target.value);
   };
