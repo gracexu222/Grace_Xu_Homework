@@ -14,7 +14,6 @@ async function maximumTransfer(name, city) {
   let page = 1;
   let totalPages = 1;
 
-  // Loop through all pages
   while (page <= totalPages) {
     const data = await fetchPage(page);
     totalPages = data.total_pages;
@@ -25,7 +24,6 @@ async function maximumTransfer(name, city) {
         transaction.location.address.city === city &&
         transaction.txnType === "debit"
       ) {
-        // Convert the amount string to a numeric value
         const amount = parseFloat(transaction.amount.replace(/[^0-9.-]+/g, ""));
         if (amount > maxAmount) {
           maxAmount = amount;
